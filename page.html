@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floor Map</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="map-container">
+      <div id="floor-map" class="floor-container">
+        <div class="roadSide">
+          <hr class="dashed" />
+          <div class="road-label"></div>
+        </div>
+        <div class="hebbal">Hebbal</div>
+        <div class="lakeSide">Lake side</div>
+        <div class="airport">Airport</div>
+        <div class="floor">
+          <div id="cell-cr06" class="cell cr06">CR06</div>
+          <div id="cell-cr08" class="cell cr08">CR08</div>
+
+          <div id="cell-fr05" class="cell fr05">FR05</div>
+          <div id="cell-fr06" class="cell fr06">FR06</div>
+          <div id="cell-fr17" class="cell fr17">FR17</div>
+          <div id="cell-fr18" class="cell fr18">FR18</div>
+          <div id="cell-fr22" class="cell fr22">FR22</div>
+          <div id="cell-fr21" class="cell fr21">FR21</div>
+
+          <div id="cell-mr02" class="cell mr02">MR02</div>
+          <div id="cell-mr03" class="cell mr03">MR03</div>
+          <div id="cell-mr03" class="cell mr03">MR03</div>
+          <div id="cell-mr04" class="cell mr04">MR04</div>
+          <div id="cell-mr05" class="cell mr05">MR05</div>
+          <div id="cell-mr15" class="cell mr15">MR15</div>
+          <div id="cell-mr16" class="cell mr16">MR16</div>
+          <div id="cell-mr17" class="cell mr17">MR17</div>
+          <div id="cell-mr18" class="cell mr18">MR18</div>
+          <div id="cell-mr19" class="cell mr19">MR19</div>
+
+          <div id="cell-ph1" class="cell ph1">P1</div>
+          <div id="cell-ph2" class="cell ph2">P2</div>
+          <div id="cell-ph3" class="cell ph3">P3</div>
+          <div id="cell-ph4" class="cell ph4">P4</div>
+          <div id="cell-ph5" class="cell ph5">P5</div>
+          <div id="cell-ph6" class="cell ph6">P6</div>
+          <div id="cell-ph7" class="cell ph7">P7</div>
+          <div id="cell-ph8" class="cell ph8">P8</div>
+          <div id="cell-ph9" class="cell ph9">P9</div>
+          <div id="cell-ph10" class="cell ph10">P10</div>
+          <div id="cell-ph11" class="cell ph11">P11</div>
+          <div id="cell-ph12" class="cell ph12">P12</div>
+          <div id="cell-ph13" class="cell ph13">P13</div>
+          <div id="cell-ph14" class="cell ph14">P14</div>
+          <div id="cell-ph15" class="cell ph15">P15</div>
+          <div id="cell-ph16" class="cell ph16">P16</div>
+          <div id="cell-ph17" class="cell ph17">P17</div>
+          <div id="cell-ph17" class="cell ph18">P18</div>
+          <div id="cell-ph17" class="cell ph19">P19</div>
+          <div id="cell-ph17" class="cell ph20">P20</div>
+          <div id="cell-ph17" class="cell ph21">P21</div>
+          <div id="cell-ph17" class="cell ph22">P22</div>
+          <div id="cell-ph17" class="cell ph23">P23</div>
+          <div id="cell-ph17" class="cell ph24">P24</div>
+          <div id="cell-ph17" class="cell ph25">P25</div>
+          <div id="cell-ph17" class="cell ph26">P26</div>
+
+          <div class="cell cell-emergency str1">Stairs</div>
+          <div class="cell cell-emergency str2">Stairs</div>
+          <div class="cell cell-breakout bo1">Break out</div>
+          <div class="cell cell-breakout bo2">Break out</div>
+          <div class="cell cell-washroom wr1">Washroom</div>
+          <div class="cell cell-washroom wr2">Washroom</div>
+          <div class="cell cell-work cub1">Cub-1</div>
+          <div class="cell cell-work cub2">Cub-2</div>
+          <div class="cell cell-work cub3">Cub-3</div>
+          <div class="cell cell-work cub4">Cub-4</div>
+          <div class="cell cell-work cub5">Cub-5</div>
+          <div class="cell cell-lift lft1">lift</div>
+          <div class="cell cell-lift lft2">lift</div>
+        </div>
+      </div>
+      <div class="label-container">
+        <div class="input-container">
+          <input type="text" id="cell-id" placeholder="Enter Room id" />
+          <div class="input-notes">
+            <p>Note: Enter the room id to highlight the room in the floor map.</p>
+            <p>
+              Meeting room id as follows MR01, MR02, MR03.., FR01, FR02, FR03..
+            </p>
+          </div>
+        </div>
+        <div class="legends-container">
+          <div class="legend">
+            <div class="cell legends-color"></div>
+            <div class="label">Meeting Rooms</div>
+          </div>
+          <div class="legend">
+            <div class="cell-work legends-color"></div>
+            <div class="label">Cubicals</div>
+          </div>
+          <div class="legend">
+            <div class="cell-breakout legends-color"></div>
+            <div class="label">Break out</div>
+          </div>
+          <div class="legend">
+            <div class="cell-emergency legends-color"></div>
+            <div class="label">Stair case</div>
+          </div>
+
+          <div class="legend">
+            <div class="cell-washroom legends-color"></div>
+            <div class="label">Washroom</div>
+          </div>
+          <div class="legend">
+            <div class="cell-lift legends-color"></div>
+            <div class="label">Lift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="page.js"></script>
+  </body>
+</html>

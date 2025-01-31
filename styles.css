@@ -1,0 +1,358 @@
+body {
+  font-family: Arial, sans-serif;
+  width: 98vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+#map-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  width: inherit;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#cell-id {
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.cell.highlight {
+  background-color: rgb(238, 22, 123);
+  color: white;
+}
+
+/* Template */
+
+.floor-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5% auto 5%;
+  grid-template-areas:
+    ". roadSide ."
+    "airport floor hebbal"
+    ". lakeSide .";
+}
+
+.roadSide {
+  grid-area: roadSide;
+  text-align: center;
+  background-color: grey;
+  color: white;
+  height: 2rem;
+  position: relative;
+}
+
+.dashed {
+  border-top: 3px dashed #bbb;
+  border-bottom: 0;
+  position: absolute;
+  width: 100%;
+  top: 22%;
+}
+
+.hebbal {
+  grid-area: hebbal;
+  place-self: center;
+}
+.lakeSide {
+  grid-area: lakeSide;
+  text-align: center;
+  --mask: radial-gradient(
+        2.29em at 50% calc(100% + 2em),
+        #0000 calc(99% - 0.1em),
+        #000 calc(101% - 0.1em) 99%,
+        #0000 101%
+      )
+      calc(50% - 2em) calc(50% - 0.55em + 0.5px) / 4em 1.1em,
+    radial-gradient(2.29em at 50% -2em, #0000 calc(99% - 0.1em), #000 calc(101% - 0.1em) 99%, #0000 101%) 50%
+      calc(50% + 0.55em) / 4em 1.1em;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  height: 2rem;
+  background: linear-gradient(60deg, #4ecdc4, #00a0b0);
+}
+.airport {
+  grid-area: airport;
+  place-self: center;
+}
+
+.label-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-evenly;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  flex: 0 1 40%;
+}
+
+.legends-container {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-around;
+  font-size: initial;
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.legends-color {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.floor {
+  grid-area: floor;
+  display: grid;
+  border: solid 1px blue;
+  padding: 2rem;
+  gap: 0.3rem;
+
+  grid-template-areas:
+    "ph16 ph14 ph13 cub5 cub5 cub5 ph12 ph12 . . . mr15 mr15 cub2 cub2 cub2 fr17 fr18 mr16 . ph1 ph3 . cr08 fr21 . mr19 mr19 . bo1 bo1 bo1"
+    "ph16 ph15 ph15 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr16 . ph2 ph3 . cr08 fr22 . mr19 mr19 . bo1 bo1 bo1"
+    "ph17 ph15 ph15 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr17 . . . . . . . . . . bo1 bo1 bo1"
+    ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 mr18 mr18 mr18 . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
+    ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
+    ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
+    "ph18 ph18 ph18 wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr04 mr04 cub1 cub1 cub1 cub1"
+    "ph22 ph19 ph19 cub4 cub4 cub4 . . . . . . . cub3 cub3 cub3 ph9 ph9 mr02 . . . . . . . fr05 fr06 cub1 cub1 cub1 cub1"
+    "ph23 ph20 ph21 cub4 cub4 cub4 ph8 ph8 . . . ph4 ph4 cub3 cub3 cub3 ph10 ph11 mr03 . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    ". . . . . ph26 ph25 ph24 bo2 bo2 ph7 ph6 ph5 . . . . . . . . . . . . . . . . . . .";
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #cae7ee;
+  cursor: pointer;
+}
+
+.cell:hover {
+  transform: scale(1.5);
+}
+
+.cell-emergency {
+  background: #14dab5;
+}
+
+.cell-work {
+  background: #ebf0d5;
+}
+
+.cell-breakout {
+  background: #edd400;
+}
+
+.cell-washroom {
+  background: #6183e0;
+}
+
+.cell-lift {
+  background: #d0c6b6;
+}
+
+.cr06 {
+  grid-area: cr06;
+}
+.cr08 {
+  grid-area: cr08;
+}
+
+.fr05 {
+  grid-area: fr05;
+}
+.fr06 {
+  grid-area: fr06;
+}
+.fr17 {
+  grid-area: fr17;
+}
+.fr18 {
+  grid-area: fr18;
+}
+.fr20 {
+  grid-area: fr20;
+}
+.fr22 {
+  grid-area: fr22;
+}
+.fr21 {
+  grid-area: fr21;
+}
+
+.mr01 {
+  grid-area: mr01;
+}
+.mr02 {
+  grid-area: mr02;
+}
+.mr03 {
+  grid-area: mr03;
+}
+.mr04 {
+  grid-area: mr04;
+}
+.mr05 {
+  grid-area: mr05;
+}
+.mr15 {
+  grid-area: mr15;
+}
+.mr16 {
+  grid-area: mr16;
+}
+.mr17 {
+  grid-area: mr17;
+}
+.mr18 {
+  grid-area: mr18;
+}
+.mr19 {
+  grid-area: mr19;
+}
+
+/* // place holders */
+.ph1 {
+  grid-area: ph1;
+}
+.ph2 {
+  grid-area: ph2;
+}
+.ph3 {
+  grid-area: ph3;
+}
+.ph4 {
+  grid-area: ph4;
+}
+.ph5 {
+  grid-area: ph5;
+}
+.ph6 {
+  grid-area: ph6;
+}
+.ph7 {
+  grid-area: ph7;
+}
+.ph8 {
+  grid-area: ph8;
+}
+.ph9 {
+  grid-area: ph9;
+}
+.ph10 {
+  grid-area: ph10;
+}
+.ph11 {
+  grid-area: ph11;
+}
+.ph12 {
+  grid-area: ph12;
+}
+.ph13 {
+  grid-area: ph13;
+}
+.ph14 {
+  grid-area: ph14;
+}
+.ph15 {
+  grid-area: ph15;
+}
+.ph16 {
+  grid-area: ph16;
+}
+.ph17 {
+  grid-area: ph17;
+}
+.ph18 {
+  grid-area: ph18;
+}
+.ph19 {
+  grid-area: ph19;
+}
+.ph20 {
+  grid-area: ph20;
+}
+.ph21 {
+  grid-area: ph21;
+}
+.ph22 {
+  grid-area: ph22;
+}
+.ph23 {
+  grid-area: ph23;
+}
+.ph24 {
+  grid-area: ph24;
+}
+.ph25 {
+  grid-area: ph25;
+}
+.ph26 {
+  grid-area: ph26;
+}
+
+.str1 {
+  grid-area: str1;
+}
+.str2 {
+  grid-area: str2;
+}
+.bo1 {
+  grid-area: bo1;
+}
+.bo2 {
+  grid-area: bo2;
+}
+.cub1 {
+  grid-area: cub1;
+}
+.cub2 {
+  grid-area: cub2;
+}
+.cub3 {
+  grid-area: cub3;
+}
+.cub4 {
+  grid-area: cub4;
+}
+.cub5 {
+  grid-area: cub5;
+}
+.wr1 {
+  grid-area: wr1;
+}
+.wr2 {
+  grid-area: wr2;
+}
+.lft1 {
+  grid-area: lft1;
+}
+.lft2 {
+  grid-area: lft2;
+}
