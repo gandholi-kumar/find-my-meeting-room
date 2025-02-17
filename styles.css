@@ -19,9 +19,14 @@ body {
   box-sizing: border-box;
 }
 
-#cell-id {
+#input-meeting-room {
   padding: 8px;
   margin-bottom: 10px;
+}
+
+#input-meeting-room:focus {
+  border: none;
+  outline: none;
 }
 
 .cell.highlight {
@@ -46,7 +51,7 @@ body {
   text-align: center;
   background-color: grey;
   color: white;
-  height: 2rem;
+  height: 3rem;
   position: relative;
 }
 
@@ -55,7 +60,7 @@ body {
   border-bottom: 0;
   position: absolute;
   width: 100%;
-  top: 22%;
+  top: 35%;
 }
 
 .hebbal {
@@ -76,7 +81,7 @@ body {
       calc(50% + 0.55em) / 4em 1.1em;
   -webkit-mask: var(--mask);
   mask: var(--mask);
-  height: 2rem;
+  height: 4rem;
   background: linear-gradient(60deg, #4ecdc4, #00a0b0);
 }
 .airport {
@@ -84,22 +89,27 @@ body {
   place-self: center;
 }
 
+/* Input label and legends */
 .label-container {
   display: flex;
   gap: 2rem;
   justify-content: space-evenly;
 }
+
 .input-container {
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: space-around;
-  flex: 0 1 40%;
+}
+
+.input-notes {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .legends-container {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 2rem;
   align-items: flex-start;
@@ -121,6 +131,7 @@ body {
   border-radius: 5px;
 }
 
+/* Floor map */
 .floor {
   grid-area: floor;
   display: grid;
@@ -129,17 +140,21 @@ body {
   gap: 0.3rem;
 
   grid-template-areas:
-    "ph16 ph14 ph13 cub5 cub5 cub5 ph12 ph12 . . . mr15 mr15 cub2 cub2 cub2 fr17 fr18 mr16 . ph1 ph3 . cr08 fr21 . mr19 mr19 . bo1 bo1 bo1"
-    "ph16 ph15 ph15 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr16 . ph2 ph3 . cr08 fr22 . mr19 mr19 . bo1 bo1 bo1"
-    "ph17 ph15 ph15 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr17 . . . . . . . . . . bo1 bo1 bo1"
+    ". . . . . . ph37 ph38 . . . ph40 ph39 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . ph37 . . . . . ph39 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . ph37 . . . . . ph39 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    "mr14 fr16 fr15 cub5 cub5 cub5 mr12 mr12 . . . mr15 mr15 cub2 cub2 cub2 fr17 fr18 mr16 . fr19 cr07 . cr08 fr21 . mr19 mr19 . bo1 bo1 bo1"
+    "mr14 cr05 cr05 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr16 . ph2 cr07 . cr08 fr22 . mr19 mr19 . bo1 bo1 bo1"
+    "mr13 cr05 cr05 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr17 . . . . . . . . . . bo1 bo1 bo1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 mr18 mr18 mr18 . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
-    "ph18 ph18 ph18 wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr04 mr04 cub1 cub1 cub1 cub1"
-    "ph22 ph19 ph19 cub4 cub4 cub4 . . . . . . . cub3 cub3 cub3 ph9 ph9 mr02 . . . . . . . fr05 fr06 cub1 cub1 cub1 cub1"
-    "ph23 ph20 ph21 cub4 cub4 cub4 ph8 ph8 . . . ph4 ph4 cub3 cub3 cub3 ph10 ph11 mr03 . . . . . . . . . . . . ."
+    "mr09 mr09 mr09 wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr04 mr04 cub1 cub1 cub1 cub1"
+    "mr08 cr04 cr04 cub4 cub4 cub4 . . . . . . . cub3 cub3 cub3 fr01 fr01 mr02 . . . . . . . fr05 fr06 cub1 cub1 cub1 cub1"
+    "mr07 fr10 fr09 cub4 cub4 cub4 mr06 mr06 . . . mr01 mr01 cub3 cub3 cub3 cr01 cr03 mr03 . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-    ". . . . . ph26 ph25 ph24 bo2 bo2 ph7 ph6 ph5 . . . . . . . . . . . . . . . . . . .";
+    ". . . . . fr08 fr07 ph24 bo2 bo2 ph7 ph6 ph5 . . . . . . . . . . . . . . . . . . .";
 }
 
 .cell {
@@ -177,146 +192,7 @@ body {
   background: #d0c6b6;
 }
 
-.cr06 {
-  grid-area: cr06;
-}
-.cr08 {
-  grid-area: cr08;
-}
-
-.fr05 {
-  grid-area: fr05;
-}
-.fr06 {
-  grid-area: fr06;
-}
-.fr17 {
-  grid-area: fr17;
-}
-.fr18 {
-  grid-area: fr18;
-}
-.fr20 {
-  grid-area: fr20;
-}
-.fr22 {
-  grid-area: fr22;
-}
-.fr21 {
-  grid-area: fr21;
-}
-
-.mr01 {
-  grid-area: mr01;
-}
-.mr02 {
-  grid-area: mr02;
-}
-.mr03 {
-  grid-area: mr03;
-}
-.mr04 {
-  grid-area: mr04;
-}
-.mr05 {
-  grid-area: mr05;
-}
-.mr15 {
-  grid-area: mr15;
-}
-.mr16 {
-  grid-area: mr16;
-}
-.mr17 {
-  grid-area: mr17;
-}
-.mr18 {
-  grid-area: mr18;
-}
-.mr19 {
-  grid-area: mr19;
-}
-
-/* // place holders */
-.ph1 {
-  grid-area: ph1;
-}
-.ph2 {
-  grid-area: ph2;
-}
-.ph3 {
-  grid-area: ph3;
-}
-.ph4 {
-  grid-area: ph4;
-}
-.ph5 {
-  grid-area: ph5;
-}
-.ph6 {
-  grid-area: ph6;
-}
-.ph7 {
-  grid-area: ph7;
-}
-.ph8 {
-  grid-area: ph8;
-}
-.ph9 {
-  grid-area: ph9;
-}
-.ph10 {
-  grid-area: ph10;
-}
-.ph11 {
-  grid-area: ph11;
-}
-.ph12 {
-  grid-area: ph12;
-}
-.ph13 {
-  grid-area: ph13;
-}
-.ph14 {
-  grid-area: ph14;
-}
-.ph15 {
-  grid-area: ph15;
-}
-.ph16 {
-  grid-area: ph16;
-}
-.ph17 {
-  grid-area: ph17;
-}
-.ph18 {
-  grid-area: ph18;
-}
-.ph19 {
-  grid-area: ph19;
-}
-.ph20 {
-  grid-area: ph20;
-}
-.ph21 {
-  grid-area: ph21;
-}
-.ph22 {
-  grid-area: ph22;
-}
-.ph23 {
-  grid-area: ph23;
-}
-.ph24 {
-  grid-area: ph24;
-}
-.ph25 {
-  grid-area: ph25;
-}
-.ph26 {
-  grid-area: ph26;
-}
-
+/* Grid Areas */
 .str1 {
   grid-area: str1;
 }
@@ -355,4 +231,156 @@ body {
 }
 .lft2 {
   grid-area: lft2;
+}
+
+/* CR */
+.cr01 {
+  grid-area: cr01;
+}
+.cr03 {
+  grid-area: cr03;
+}
+.cr04 {
+  grid-area: cr04;
+}
+.cr05 {
+  grid-area: cr05;
+}
+.cr06 {
+  grid-area: cr06;
+}
+.cr07 {
+  grid-area: cr07;
+}
+.cr08 {
+  grid-area: cr08;
+}
+
+/* FR */
+.fr01 {
+  grid-area: fr01;
+}
+.fr05 {
+  grid-area: fr05;
+}
+.fr06 {
+  grid-area: fr06;
+}
+.fr07 {
+  grid-area: fr07;
+}
+.fr08 {
+  grid-area: fr08;
+}
+.fr09 {
+  grid-area: fr09;
+}
+.fr10 {
+  grid-area: fr10;
+}
+.fr15 {
+  grid-area: fr15;
+}
+.fr16 {
+  grid-area: fr16;
+}
+.fr17 {
+  grid-area: fr17;
+}
+.fr18 {
+  grid-area: fr18;
+}
+.fr19 {
+  grid-area: fr19;
+}
+.fr20 {
+  grid-area: fr20;
+}
+.fr22 {
+  grid-area: fr22;
+}
+.fr21 {
+  grid-area: fr21;
+}
+
+/* MR */
+.mr01 {
+  grid-area: mr01;
+}
+.mr02 {
+  grid-area: mr02;
+}
+.mr03 {
+  grid-area: mr03;
+}
+.mr04 {
+  grid-area: mr04;
+}
+.mr05 {
+  grid-area: mr05;
+}
+.mr06 {
+  grid-area: mr06;
+}
+.mr07 {
+  grid-area: mr07;
+}
+.mr08 {
+  grid-area: mr08;
+}
+.mr09 {
+  grid-area: mr09;
+}
+.mr12 {
+  grid-area: mr12;
+}
+.mr13 {
+  grid-area: mr13;
+}
+.mr14 {
+  grid-area: mr14;
+}
+.mr15 {
+  grid-area: mr15;
+}
+.mr16 {
+  grid-area: mr16;
+}
+.mr17 {
+  grid-area: mr17;
+}
+.mr18 {
+  grid-area: mr18;
+}
+.mr19 {
+  grid-area: mr19;
+}
+
+/* PH */
+.ph2 {
+  grid-area: ph2;
+}
+.ph5 {
+  grid-area: ph5;
+}
+.ph6 {
+  grid-area: ph6;
+}
+.ph7 {
+  grid-area: ph7;
+}
+.ph24 {
+  grid-area: ph24;
+}
+.ph37 {
+  grid-area: ph37;
+}
+.ph38 {
+  grid-area: ph38;
+}
+.ph39 {
+  grid-area: ph39;
+}
+.ph40 {
+  grid-area: ph40;
 }
