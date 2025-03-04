@@ -140,21 +140,21 @@ body {
   gap: 0.3rem;
 
   grid-template-areas:
-    ". . . . . . ph37 ph38 . . . ph40 ph39 . . . . . . . . . . . . . . . . . . ."
-    ". . . . . . ph37 . . . . . ph39 . . . . . . . . . . . . . . . . . . ."
-    ". . . . . . ph37 . . . . . ph39 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . mr11 fr14 . . . fr13 mr10 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . mr11 . . . . . mr10 . . . . . . . . . . . . . . . . . . ."
+    ". . . . . . mr11 . . . . . mr10 . . . . . . . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
     "mr14 fr16 fr15 cub5 cub5 cub5 mr12 mr12 . . . mr15 mr15 cub2 cub2 cub2 fr17 fr18 mr16 . fr19 cr07 . cr08 fr21 . mr19 mr19 . bo1 bo1 bo1"
-    "mr14 cr05 cr05 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr16 . ph2 cr07 . cr08 fr22 . mr19 mr19 . bo1 bo1 bo1"
+    "mr14 cr05 cr05 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr16 . fr20 cr07 . cr08 fr22 . mr19 mr19 . bo1 bo1 bo1"
     "mr13 cr05 cr05 cub5 cub5 cub5 . . . . . . . cub2 cub2 cub2 cr06 cr06 mr17 . . . . . . . . . . bo1 bo1 bo1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 mr18 mr18 mr18 . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
     ". . . wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr05 mr05 cub1 cub1 cub1 cub1"
     "mr09 mr09 mr09 wr2 wr2 wr2 wr2 lft2 lft2 str2 lft1 lft1 wr1 wr1 wr1 wr1 . . . . str1 str1 str1 str1 str1 . mr04 mr04 cub1 cub1 cub1 cub1"
-    "mr08 cr04 cr04 cub4 cub4 cub4 . . . . . . . cub3 cub3 cub3 fr01 fr01 mr02 . . . . . . . fr05 fr06 cub1 cub1 cub1 cub1"
-    "mr07 fr10 fr09 cub4 cub4 cub4 mr06 mr06 . . . mr01 mr01 cub3 cub3 cub3 cr01 cr03 mr03 . . . . . . . . . . . . ."
+    "mr08 cr04 cr04 cub4 cub4 cub4 . . . . . . . cub3 cub3 cub3 cr02 cr02 mr02 . . . . . . . fr05 fr06 cub1 cub1 cub1 cub1"
+    "mr07 fr10 fr09 cub4 cub4 cub4 mr06 mr06 . . . mr01 mr01 cub3 cub3 cub3 fr03 fr04 mr03 . . . . . . . . . . . . ."
     ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-    ". . . . . fr08 fr07 ph24 bo2 bo2 ph7 ph6 ph5 . . . . . . . . . . . . . . . . . . .";
+    ". . . . . fr08 fr07 cr03 bo2 bo2 cr01 fr01 fr02 . . . . . . . . . . . . . . . . . . .";
 }
 
 .cell {
@@ -260,6 +260,9 @@ body {
 .fr01 {
   grid-area: fr01;
 }
+.fr02 {
+  grid-area: fr02;
+}
 .fr05 {
   grid-area: fr05;
 }
@@ -357,30 +360,27 @@ body {
 }
 
 /* PH */
-.ph2 {
-  grid-area: ph2;
+.fr20 {
+  grid-area: fr20;
 }
-.ph5 {
-  grid-area: ph5;
+.cr02 {
+  grid-area: cr02;
 }
-.ph6 {
-  grid-area: ph6;
+.fr03 {
+  grid-area: fr03;
 }
-.ph7 {
-  grid-area: ph7;
+.fr04 {
+  grid-area: fr04;
 }
-.ph24 {
-  grid-area: ph24;
+.mr11 {
+  grid-area: mr11;
 }
-.ph37 {
-  grid-area: ph37;
+.fr14 {
+  grid-area: fr14;
 }
-.ph38 {
-  grid-area: ph38;
+.mr10 {
+  grid-area: mr10;
 }
-.ph39 {
-  grid-area: ph39;
-}
-.ph40 {
-  grid-area: ph40;
+.fr13 {
+  grid-area: fr13;
 }
