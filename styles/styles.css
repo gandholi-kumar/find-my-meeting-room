@@ -19,12 +19,13 @@ body {
   box-sizing: border-box;
 }
 
-#input-meeting-room {
+#searchBox {
   padding: 8px;
   margin-bottom: 10px;
+  width: inherit;
 }
 
-#input-meeting-room:focus {
+#searchBox:focus {
   border: none;
   outline: none;
 }
@@ -105,6 +106,30 @@ body {
 .input-notes {
   font-size: 16px;
   font-weight: 500;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.suggestions {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 1000; /* Ensures it overlays other content */
+  display: none; /* Hide by default */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  max-height: 200px;
+  overflow: auto;
+}
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background: #f0f0f0;
 }
 
 .legends-container {
