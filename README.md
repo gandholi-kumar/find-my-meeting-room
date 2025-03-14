@@ -6,12 +6,20 @@ This is a simple Chrome extension to identify all the meeting rooms in the 4th f
 
 ```
 my-chrome-extension
-├ page.html        # Defines the structure floor map
-├ page.js          # Contains the JavaScript functionality to display the page content
-├ styles.css       # CSS styles for the popup
-├ background.js    # Listens to the click action on icon and open a new tab
+├ docs                  # Holds the documents
+├ images
+    └ building.png      # Defines the structure floor map
+├ scripts
+    ├ background.js     # Listens to the click action on icon and open a new tab
+    ├ page.js           # Contains the JavaScript functionality to display the page content
+    ├ utils.js          # Contains all the utility functions
+    └ constants.js      # Holds the constant data
+├ styles
+    └ styles.css        # CSS styles for the popup
+├ view
+    └ page.html         # Defines the structure floor map
 ├ manifest.json    # Configuration file for the Chrome extension
-└ README.md        # Documentation for the project
+└ README.md        # Description for the project
 ```
 
 ## Installation
@@ -23,6 +31,7 @@ my-chrome-extension
 
 ## Usage
 - Click on the extension icon in the Chrome toolbar to open the layout in new window.
+- Keyboard shortcut is also available "Ctrl+Shift+Z" to launch the extension from any window tab.
 - Type in the room id in the text box as hinted and it can be seen on layout.
 
 ## License
