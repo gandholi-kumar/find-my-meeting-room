@@ -61,7 +61,27 @@ const onLoadFocusInputBox = () => {
   input.focus();
 };
 
+const createMeetingRoom = (id) => {
+  const cell = document.createElement("div");
+  cell.id = `cell-${id}`;
+  cell.classList.add("cell", `${id}`);
+  cell.ariaLabel = id;
+  cell.textContent = id.toUpperCase();
+  cell.tabIndex = 0;
+  return cell;
+};
+
+const createMeetingRooms = () => {
+  const floorDiv = document.querySelector(".floor");
+
+  roomNameAndIdMapper.forEach((value, _key) => {
+    const cell = createMeetingRoom(value.toLowerCase());
+    floorDiv?.appendChild(cell);
+  });
+};
+
 export const onDocumentLoad = () => {
+  createMeetingRooms();
   onLoadFocusInputBox();
   onInputChange();
 };
