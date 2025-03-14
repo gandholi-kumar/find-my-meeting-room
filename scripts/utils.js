@@ -21,7 +21,13 @@ const findCellFromName = (name) => {
 };
 
 const highlightCell = () => {
-  const id = input.value.trim().toLowerCase();
+  const id = input?.value?.trim().toLowerCase();
+
+  if (id === "") {
+    removeBorderOnEmptyInput();
+    return;
+  }
+
   let getCellId = document.getElementById(`cell-${id}`);
   if (getCellId) {
     onCellFound(getCellId);
